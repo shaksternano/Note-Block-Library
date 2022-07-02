@@ -14,11 +14,11 @@ public class ModBlocks {
 
     public static final RegistrySupplier<Block> CAT = BLOCKS.register(
             "cat",
-            () -> new Block(AbstractBlock.Settings.of(ModMaterials.CAT).strength(6).requiresTool())
+            () -> new Block(AbstractBlock.Settings.of(ModMaterials.CAT).strength(1))
     );
     public static final RegistrySupplier<Block> WOLF = BLOCKS.register(
             "wolf",
-            () -> new Block(AbstractBlock.Settings.of(ModMaterials.WOLF).strength(6).requiresTool())
+            () -> new Block(AbstractBlock.Settings.of(ModMaterials.WOLF).strength(1))
     );
 
     public static void registerBlocks() {
