@@ -1,0 +1,30 @@
+{
+    "schemaVersion": 1,
+    "id": "noteblocklib",
+    "version": "${version}",
+    "name": "Note Block Library",
+    "description": "Library for adding custom note block sounds.",
+    "authors": [
+        "ShaksterNano"
+    ],
+    "contact": {
+        "homepage": "https://github.com/ShaksterNano/Note-Block-Library",
+        "sources": "https://github.com/ShaksterNano/Note-Block-Library",
+        "issues": "https://github.com/ShaksterNano/Note-Block-Library/issues"
+    },
+    "license": "MIT",
+    "icon": "assets/noteblocklib/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "mm:early_risers": [
+            "io.github.shaksternano.noteblocklib.commonside.fabric.NoteBlockLibEarlyRiser"
+        ]
+    },
+    "mixins": [
+        "noteblocklib-common.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.14.0",
+        "minecraft": ">=1.19"
+    }
+}

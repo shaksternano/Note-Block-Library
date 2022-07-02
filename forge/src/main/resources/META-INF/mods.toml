@@ -1,0 +1,29 @@
+modLoader = "javafml"
+loaderVersion = "[41,)"
+issueTrackerURL = "https://github.com/ShaksterNano/Note-Block-Library/issues"
+license = "MIT"
+
+[[mods]]
+    modId = "noteblocklib"
+    version = "${version}"
+    displayName = "Note Block Library"
+    displayURL = "https://github.com/ShaksterNano/Note-Block-Library"
+    authors = "ShaksterNano"
+    description = '''
+    Library for adding custom note block sounds.
+    '''
+    logoFile = "icon.png"
+
+[[dependencies.noteblocklib]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "[41,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.noteblocklib]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.19,)"
+    ordering = "NONE"
+    side = "BOTH"

@@ -1,0 +1,30 @@
+pluginManagement {
+    repositories {
+        maven {
+            name = "Architectury"
+            url = "https://maven.architectury.dev"
+        }
+
+        maven {
+            name = "Fabric"
+            url = "https://maven.fabricmc.net"
+        }
+
+        maven {
+            name = "Forge"
+            url = "https://maven.minecraftforge.net"
+        }
+
+        gradlePluginPortal()
+    }
+}
+
+include("common")
+include("fabric")
+include("forge")
+
+include("testmod-common")
+include("testmod-fabric")
+include("testmod-forge")
+
+rootProject.name = "Note Block Library"

@@ -1,0 +1,54 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+loom {
+    accessWidenerPath = project(":common").loom.accessWidenerPath
+
+    forge {
+        mixinConfig("noteblocklib-forge.mixins.json")
+
+        localMods {
+            forge {
+                it.add(project(":forge").sourceSets.main)
+            }
+        }
+
+    }
+}
+
+archivesBaseName = "${rootProject.archives_base_name}-test-forge-mc${rootProject.minecraft_version}"
+
+architectury {
+    platformSetupLoomIde()
+    forge()
+}
+
+configurations {
+    common
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentForge.extendsFrom common
+}
+
+dependencies {
+    forge("net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}")
+    // Remove the next line if you don't want to depend on the API
+    modApi("dev.architectury:architectury-forge:${rootProject.architectury_api_version}")
+
+    implementation project(path: ":forge", configuration: "namedElements")
+    common(project(path: ":common", configuration: "namedElements")) {
+        transitive = false
+    }
+    common(project(path: ":testmod-common", configuration: "namedElements")) {
+        transitive = false
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("META-INF/mods.toml") {
+        expand "version": project.version
+    }
+}
