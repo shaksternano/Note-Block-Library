@@ -9,6 +9,7 @@ import net.fabricmc.loader.api.MappingResolver;
 import net.minecraft.block.enums.Instrument;
 import org.jetbrains.annotations.ApiStatus;
 
+@ApiStatus.Internal
 public class NoteBlockLibEarlyRiser implements Runnable {
 
     /**
@@ -16,7 +17,6 @@ public class NoteBlockLibEarlyRiser implements Runnable {
      * Forge equivalent is
      * {@code io.github.shaksternano.noteblocklib.mixin.forge.commonside.InstrumentMixin#noteBlockLib$addCustomInstruments}
      */
-    @ApiStatus.Internal
     @Override
     public void run() {
         MappingResolver remapper = FabricLoader.getInstance().getMappingResolver();

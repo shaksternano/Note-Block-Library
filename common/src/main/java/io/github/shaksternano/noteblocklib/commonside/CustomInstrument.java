@@ -21,6 +21,8 @@ public class CustomInstrument {
     /**
      * Constructs a new {@code CustomInstrument}.
      *
+     * @param modId                   The mod ID of the mod that added this {@code CustomInstrument},
+     *                                used to prefix the {@code name} to prevent conflicts.
      * @param name                    The name of the instrument.
      * @param instrumentSoundSupplier The {@code Supplier} for the sound event for the instrument.
      *                                A {@code Supplier} is needed to prevent premature classloading

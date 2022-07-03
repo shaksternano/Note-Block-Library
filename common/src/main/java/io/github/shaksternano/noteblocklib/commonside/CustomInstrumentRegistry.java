@@ -13,6 +13,11 @@ public class CustomInstrumentRegistry {
 
     private static final Collection<CustomInstrument> CUSTOM_INSTRUMENTS = new LinkedHashSet<>();
 
+    /**
+     * Registers a {@code CustomInstrument}.
+     *
+     * @param instrument The {@code CustomInstrument} to register.
+     */
     public static void registerInstrument(CustomInstrument instrument) {
         if (CUSTOM_INSTRUMENTS.contains(instrument)) {
             NoteBlockLib.LOGGER.error(
