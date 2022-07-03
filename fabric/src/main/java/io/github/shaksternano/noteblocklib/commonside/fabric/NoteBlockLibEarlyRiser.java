@@ -9,8 +9,6 @@ import net.fabricmc.loader.api.MappingResolver;
 import net.minecraft.block.enums.Instrument;
 import org.jetbrains.annotations.ApiStatus;
 
-import java.util.List;
-
 public class NoteBlockLibEarlyRiser implements Runnable {
 
     /**
@@ -25,13 +23,11 @@ public class NoteBlockLibEarlyRiser implements Runnable {
         String instrumentClassName = remapper.mapClassName("intermediary", "net.minecraft.class_2766");
         String soundEventInternalClassName = 'L' + remapper.mapClassName("intermediary", "net.minecraft.class_3414") + ';';
 
-        List<CustomInstrument> customInstruments = CustomInstrumentRegistry.getRegisteredInstruments();
-        for (CustomInstrument instrument : customInstruments) {
+        for (CustomInstrument instrument : CustomInstrumentRegistry.getRegisteredInstruments()) {
             ClassTinkerers.enumBuilder(instrumentClassName, String.class, soundEventInternalClassName)
                     .addEnum(instrument.getEnumName(), () -> new Object[]{instrument.getInstrumentName(), instrument.getInstrumentSound()})
                     .build();
+            NoteBlockLib.logInstrumentAdded(instrument);
         }
-
-        NoteBlockLib.logInstrumentsAdded(customInstruments);
     }
 }

@@ -11,8 +11,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.List;
-
 /**
  * {@link IExtensibleEnum} is implemented onto {@link Instrument} to allow for
  * extra enum values to be added via {@link #create(String, String, SoundEvent)}
@@ -26,12 +24,10 @@ abstract class InstrumentMixin implements IExtensibleEnum {
      */
     @Inject(method = "<clinit>", at = @At("RETURN"))
     private static void noteBlockLib$addCustomInstruments(CallbackInfo ci) {
-        List<CustomInstrument> customInstruments = CustomInstrumentRegistry.getRegisteredInstruments();
-        for (CustomInstrument instrument : customInstruments) {
+        for (CustomInstrument instrument : CustomInstrumentRegistry.getRegisteredInstruments()) {
             create(instrument.getEnumName(), instrument.getInstrumentName(), instrument.getInstrumentSound());
+            NoteBlockLib.logInstrumentAdded(instrument);
         }
-
-        NoteBlockLib.logInstrumentsAdded(customInstruments);
     }
 
     /**

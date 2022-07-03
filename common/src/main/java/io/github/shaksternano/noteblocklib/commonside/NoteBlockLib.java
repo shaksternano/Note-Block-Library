@@ -5,10 +5,6 @@ import org.jetbrains.annotations.ApiStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-
 public class NoteBlockLib {
 
     @ApiStatus.Internal
@@ -17,31 +13,13 @@ public class NoteBlockLib {
     public static final Logger LOGGER = LoggerFactory.getLogger("Note Block Library");
 
     /**
-     * Logs information about added {@link Instrument} enum vales.
+     * Logs information about an added {@link Instrument} enum value.
      *
-     * @param customInstruments The {@code CustomInstrument}s corresponding
-     *                          to the added {@code Instrument} enum values.
+     * @param customInstrument The {@code CustomInstrument} corresponding to
+     *                         the added {@code Instrument} enum value.
      */
     @ApiStatus.Internal
-    public static void logInstrumentsAdded(Collection<CustomInstrument> customInstruments) {
-        int customInstrumentCount = customInstruments.size();
-        if (customInstrumentCount > 0) {
-            Set<String> modIds = new HashSet<>();
-            for (CustomInstrument customInstrument : customInstruments) {
-                modIds.add(customInstrument.getModId());
-            }
-
-            String message = "Added " + customInstrumentCount + " custom note block instrument";
-            if (customInstrumentCount > 1) {
-                message += "s";
-            }
-            message += " from " + modIds.size() + " mod";
-            if (modIds.size() > 1) {
-                message += "s";
-            }
-            NoteBlockLib.LOGGER.info(message);
-        } else {
-            NoteBlockLib.LOGGER.warn("No custom note block instruments added");
-        }
+    public static void logInstrumentAdded(CustomInstrument customInstrument) {
+        NoteBlockLib.LOGGER.info("Added custom note block instrument \"{}\" from {}", customInstrument.getNameWithoutPrefix(), customInstrument.getModId());
     }
 }
