@@ -2,6 +2,8 @@ plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
 }
 
+archivesBaseName = "${rootProject.archives_base_name}-forge-mc${rootProject.minecraft_version}"
+
 architectury {
     platformSetupLoomIde()
     forge()
@@ -17,8 +19,6 @@ loom {
         extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
     }
 }
-
-archivesBaseName = "${rootProject.archives_base_name}-forge-mc${rootProject.minecraft_version}"
 
 configurations {
     common

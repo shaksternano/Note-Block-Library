@@ -2,6 +2,8 @@ plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
 }
 
+archivesBaseName = "${rootProject.archives_base_name}-test-forge-mc${rootProject.minecraft_version}"
+
 loom {
     accessWidenerPath = project(":common").loom.accessWidenerPath
 
@@ -16,8 +18,6 @@ loom {
 
     }
 }
-
-archivesBaseName = "${rootProject.archives_base_name}-test-forge-mc${rootProject.minecraft_version}"
 
 architectury {
     platformSetupLoomIde()

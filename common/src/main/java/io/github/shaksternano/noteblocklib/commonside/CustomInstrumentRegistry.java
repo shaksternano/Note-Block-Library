@@ -21,7 +21,7 @@ public class CustomInstrumentRegistry {
     public static void registerInstrument(CustomInstrument instrument) {
         if (CUSTOM_INSTRUMENTS.contains(instrument)) {
             NoteBlockLib.LOGGER.error(
-                    "A custom instrument with mod ID \"{}\" and name \"{}\" has already been registered, skipping it!",
+                    "A custom note block instrument with mod ID \"{}\" and name \"{}\" has already been registered, skipping the new one",
                     instrument.getModId(),
                     instrument.getNameWithoutPrefix()
             );
