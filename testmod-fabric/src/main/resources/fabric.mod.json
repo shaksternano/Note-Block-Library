@@ -3,7 +3,7 @@
     "id": "noteblocklibtest",
     "version": "${version}",
     "name": "Note Block Library Test",
-    "description": "Library for adding custom note block sounds.",
+    "description": "A library for adding custom note block instruments.",
     "authors": [
         "ShaksterNano"
     ],

@@ -6,6 +6,6 @@ import net.minecraft.block.Material;
 
 public class ModMaterials {
 
-    public static final Material CAT = new InstrumentMaterial(new Material.Builder(MapColor.GRAY).build(), ModCustomInstruments.CAT);
-    public static final Material WOLF = new InstrumentMaterial(new Material.Builder(MapColor.GRAY).build(), ModCustomInstruments.WOLF);
+    public static final Material CAT_MATERIAL = new InstrumentMaterial(new Material.Builder(MapColor.GRAY).build(), ModCustomInstruments.CAT_INSTRUMENT);
+    public static final Material WOLF_MATERIAL = new InstrumentMaterial(new Material.Builder(MapColor.GRAY).build(), ModCustomInstruments.WOLF_INSTRUMENT);
 }

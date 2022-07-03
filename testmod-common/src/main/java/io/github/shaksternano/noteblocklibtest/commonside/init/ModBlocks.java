@@ -12,13 +12,13 @@ public class ModBlocks {
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(NoteBlockLibTest.MOD_ID, Registry.BLOCK_KEY);
 
-    public static final RegistrySupplier<Block> CAT = BLOCKS.register(
+    public static final RegistrySupplier<Block> CAT_BLOCK = BLOCKS.register(
             "cat",
-            () -> new Block(AbstractBlock.Settings.of(ModMaterials.CAT).strength(1))
+            () -> new Block(AbstractBlock.Settings.of(ModMaterials.CAT_MATERIAL).strength(1))
     );
-    public static final RegistrySupplier<Block> WOLF = BLOCKS.register(
+    public static final RegistrySupplier<Block> WOLF_BLOCK = BLOCKS.register(
             "wolf",
-            () -> new Block(AbstractBlock.Settings.of(ModMaterials.WOLF).strength(1))
+            () -> new Block(AbstractBlock.Settings.of(ModMaterials.WOLF_MATERIAL).strength(1))
     );
 
     public static void registerBlocks() {

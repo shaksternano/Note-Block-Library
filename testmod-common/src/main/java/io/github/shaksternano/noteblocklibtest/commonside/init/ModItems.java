@@ -16,20 +16,20 @@ public class ModItems {
 
     private static final ItemGroup TEST_GROUP = CreativeTabRegistry.create(
             new Identifier(NoteBlockLibTest.MOD_ID, "items"),
-            () -> new ItemStack(ModItems.CAT.get())
+            () -> new ItemStack(ModItems.CAT_BLOCK.get())
     );
 
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(NoteBlockLibTest.MOD_ID, Registry.ITEM_KEY);
 
     // Block items
 
-    public static final RegistrySupplier<Item> CAT = ITEMS.register(
+    public static final RegistrySupplier<Item> CAT_BLOCK = ITEMS.register(
             "cat",
-            () -> new BlockItem(ModBlocks.CAT.get(), new Item.Settings().group(TEST_GROUP))
+            () -> new BlockItem(ModBlocks.CAT_BLOCK.get(), new Item.Settings().group(TEST_GROUP))
     );
-    public static final RegistrySupplier<Item> WOLF = ITEMS.register(
+    public static final RegistrySupplier<Item> WOLF_BLOCK = ITEMS.register(
             "wolf",
-            () -> new BlockItem(ModBlocks.WOLF.get(), new Item.Settings().group(TEST_GROUP))
+            () -> new BlockItem(ModBlocks.WOLF_BLOCK.get(), new Item.Settings().group(TEST_GROUP))
     );
 
     public static void registerItems() {

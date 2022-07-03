@@ -10,7 +10,7 @@ license = "MIT"
     displayURL = "https://github.com/ShaksterNano/Note-Block-Library"
     authors = "ShaksterNano"
     description = '''
-    Library for adding custom note block sounds.
+    A library for adding custom note block instruments.
     '''
 
 [[dependencies.noteblocklibtest]]
