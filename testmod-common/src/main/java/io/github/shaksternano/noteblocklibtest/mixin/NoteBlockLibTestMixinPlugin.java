@@ -15,7 +15,8 @@ public class NoteBlockLibTestMixinPlugin implements IMixinConfigPlugin {
     public void onLoad(String mixinPackage) {
         CustomInstrumentRegistry.registerInstruments(
                 ModCustomInstruments.CAT,
-                ModCustomInstruments.WOLF
+                ModCustomInstruments.WOLF,
+                ModCustomInstruments.CAT_DUPLICATE
         );
     }
 

@@ -5,6 +5,7 @@ import net.minecraft.block.enums.Instrument;
 import net.minecraft.sound.SoundEvent;
 import org.jetbrains.annotations.ApiStatus;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -97,5 +98,30 @@ public class CustomInstrument {
     @ApiStatus.Internal
     public SoundEvent getInstrumentSound() {
         return INSTRUMENT_SOUND_SUPPLIER.get();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+                MOD_ID,
+                NAME_WITHOUT_PREFIX
+        );
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        } else if (obj instanceof CustomInstrument other) {
+            return Objects.equals(MOD_ID, other.MOD_ID)
+                    && Objects.equals(NAME_WITHOUT_PREFIX, other.NAME_WITHOUT_PREFIX);
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "{MOD_ID=" + MOD_ID + ", NAME=" + NAME_WITHOUT_PREFIX + '}';
     }
 }
