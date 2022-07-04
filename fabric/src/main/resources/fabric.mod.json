@@ -23,6 +23,10 @@
     "mixins": [
         "noteblocklib-common.mixins.json"
     ],
+    "custom": {
+        "notify_gradle_properties_url": "https://raw.githubusercontent.com/ShaksterNano/Note-Block-Library/1.19/gradle.properties",
+        "notify_gradle_properties_key": "mod_version"
+    },
     "depends": {
         "fabricloader": ">=0.14.0",
         "minecraft": ">=1.19"
