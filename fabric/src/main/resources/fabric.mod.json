@@ -29,11 +29,11 @@
                 "library"
             ]
         },
-        "notify_gradle_properties_url": "https://raw.githubusercontent.com/ShaksterNano/Note-Block-Library/1.19/gradle.properties",
+        "notify_gradle_properties_url": "https://raw.githubusercontent.com/ShaksterNano/Note-Block-Library/1.18/gradle.properties",
         "notify_gradle_properties_key": "mod_version"
     },
     "depends": {
         "fabricloader": ">=0.14.0",
-        "minecraft": ">=1.19"
+        "minecraft": ">=1.18"
     }
 }

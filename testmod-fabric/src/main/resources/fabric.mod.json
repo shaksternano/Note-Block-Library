@@ -21,11 +21,5 @@
     },
     "mixins": [
         "noteblocklibtest-common.mixins.json"
-    ],
-    "depends": {
-        "fabricloader": ">=0.14.0",
-        "fabric": ">=0.56.0",
-        "minecraft": ">=1.19",
-        "architectury": ">=5.7.0"
-    }
+    ]
 }
