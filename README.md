@@ -73,14 +73,8 @@ public void onLoad(String mixinPackage) {
 ```
 (If you're not using the `shouldApplyMixin` method in the plugin make sure it is set to return `true`)
 
-Create `InstrumentMaterial`s with the `CustomInstrument`s:
+Create `InstrumentBlock`s with the `CustomInstrument`s, or create a custom `Block` class that implements `InstrumentContainer`:
 ```java
-public static final Material CAT_MATERIAL = new InstrumentMaterial(new Material.Builder(MapColor.GRAY).build(), ModCustomInstruments.CAT_INSTRUMENT);
-public static final Material WOLF_MATERIAL = new InstrumentMaterial(new Material.Builder(MapColor.GRAY).build(), ModCustomInstruments.WOLF_INSTRUMENT);
-```
-
-Assign those `InstrumentMaterial`s to blocks:
-```java
-public static final Block CAT_BLOCK = new Block(AbstractBlock.Settings.of(ModMaterials.CAT_MATERIAL).strength(1));
-public static final Block WOLF_BLOCK = new Block(AbstractBlock.Settings.of(ModMaterials.WOLF_MATERIAL).strength(1));
+public static final Block CAT_BLOCK = new InstrumentBlock(ModCustomInstruments.CAT_INSTRUMENT, AbstractBlock.Settings.of(new Material.Builder(MapColor.GRAY).build()).strength(1));
+public static final Block WOLF_BLOCK = new InstrumentBlock(ModCustomInstruments.WOLF_INSTRUMENT, AbstractBlock.Settings.of(new Material.Builder(MapColor.GRAY).build()).strength(1));
 ```
