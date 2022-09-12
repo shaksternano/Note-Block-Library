@@ -6,8 +6,6 @@
     "mixins": [
         "commonside.InstrumentMixin"
     ],
-    "client": [
-    ],
     "injectors": {
         "defaultRequire": 1
     }
