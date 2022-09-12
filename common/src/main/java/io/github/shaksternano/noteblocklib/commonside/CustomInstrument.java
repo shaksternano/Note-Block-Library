@@ -4,6 +4,7 @@ import com.google.common.base.Enums;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.sound.SoundEvent;
 import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -14,9 +15,11 @@ import java.util.function.Supplier;
  */
 public class CustomInstrument {
 
-    private final String MOD_ID;
-    private final String NAME_WITHOUT_PREFIX;
-    private final Supplier<SoundEvent> INSTRUMENT_SOUND_SUPPLIER;
+    private final String modId;
+    private final String nameWithoutPrefix;
+    private final Supplier<SoundEvent> instrumentSoundSupplier;
+    @Nullable
+    private Instrument instrument;
 
     /**
      * Constructs a new {@code CustomInstrument}.
@@ -30,9 +33,9 @@ public class CustomInstrument {
      */
     @SuppressWarnings("SameParameterValue")
     public CustomInstrument(String modId, String name, Supplier<SoundEvent> instrumentSoundSupplier) {
-        MOD_ID = modId;
-        NAME_WITHOUT_PREFIX = name;
-        INSTRUMENT_SOUND_SUPPLIER = instrumentSoundSupplier;
+        this.modId = modId;
+        nameWithoutPrefix = name;
+        this.instrumentSoundSupplier = instrumentSoundSupplier;
     }
 
     /**
@@ -41,6 +44,19 @@ public class CustomInstrument {
      * @return The {@code Instrument} enum value corresponding to this custom instrument.
      */
     public Instrument getInstrument() {
+        if (instrument == null) {
+            instrument = retrieveInstrument();
+        }
+        return instrument;
+    }
+
+    /**
+     * Gets the instrument from the instrument enum name.
+     * If there is no instrument with the enum name, {@link Instrument#HARP} is returned.
+     *
+     * @return The instrument from the instrument enum name.
+     */
+    private Instrument retrieveInstrument() {
         String enumName = getEnumName();
         Optional<Instrument> instrumentOptional = Enums.getIfPresent(Instrument.class, enumName).toJavaUtil();
         Instrument fallBack = Instrument.HARP;
@@ -57,7 +73,7 @@ public class CustomInstrument {
      */
     @ApiStatus.Internal
     public String getModId() {
-        return MOD_ID;
+        return modId;
     }
 
     /**
@@ -67,7 +83,7 @@ public class CustomInstrument {
      */
     @ApiStatus.Internal
     public String getNameWithoutPrefix() {
-        return NAME_WITHOUT_PREFIX;
+        return nameWithoutPrefix;
     }
 
     /**
@@ -77,7 +93,7 @@ public class CustomInstrument {
      */
     @ApiStatus.Internal
     public String getEnumName() {
-        return MOD_ID.toUpperCase() + '$' + NAME_WITHOUT_PREFIX.toUpperCase();
+        return modId.toUpperCase() + '$' + nameWithoutPrefix.toUpperCase();
     }
 
     /**
@@ -87,7 +103,7 @@ public class CustomInstrument {
      */
     @ApiStatus.Internal
     public String getInstrumentName() {
-        return MOD_ID.toLowerCase() + '_' + NAME_WITHOUT_PREFIX.toLowerCase();
+        return modId.toLowerCase() + '_' + nameWithoutPrefix.toLowerCase();
     }
 
     /**
@@ -99,14 +115,14 @@ public class CustomInstrument {
      */
     @ApiStatus.Internal
     public SoundEvent getInstrumentSound() {
-        return INSTRUMENT_SOUND_SUPPLIER.get();
+        return instrumentSoundSupplier.get();
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                MOD_ID,
-                NAME_WITHOUT_PREFIX
+                modId,
+                nameWithoutPrefix
         );
     }
 
@@ -115,8 +131,8 @@ public class CustomInstrument {
         if (obj == this) {
             return true;
         } else if (obj instanceof CustomInstrument other) {
-            return Objects.equals(MOD_ID, other.MOD_ID)
-                    && Objects.equals(NAME_WITHOUT_PREFIX, other.NAME_WITHOUT_PREFIX);
+            return Objects.equals(modId, other.modId)
+                    && Objects.equals(nameWithoutPrefix, other.nameWithoutPrefix);
         } else {
             return false;
         }
@@ -124,6 +140,6 @@ public class CustomInstrument {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + "{MOD_ID=" + MOD_ID + ", NAME=" + NAME_WITHOUT_PREFIX + '}';
+        return getClass().getSimpleName() + "{MOD_ID=" + modId + ", NAME=" + nameWithoutPrefix + '}';
     }
 }
