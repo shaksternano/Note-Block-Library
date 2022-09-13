@@ -13,7 +13,10 @@ loom {
     accessWidenerPath = project(":common").loom.accessWidenerPath
 
     forge {
-        mixinConfig("noteblocklib-common.mixins.json", "noteblocklib-forge.mixins.json")
+        mixinConfig(
+                "noteblocklib-common.mixins.json",
+                "noteblocklib-forge.mixins.json"
+        )
 
         convertAccessWideners = true
         extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
